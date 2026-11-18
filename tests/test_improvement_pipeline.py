@@ -20,6 +20,7 @@ def test_improvement_selection_and_export_on_geometric_fixtures(tmp_path):
         [c for c in manifest["cases"] if c["patient"] in split["val"]], 32)
     models = [EnhancedUNet(2).eval(), EnhancedUNet(2).eval()]
     candidates = validation_selection(models, validation, [42, 43], "cpu", False)
+    assert candidates == validation_selection(models, validation, [42, 43], "cpu", False, metric_workers=3)
     assert len(candidates) == 6
     assert {c["id"] for c in candidates} == {
         "seed42_raw", "seed42_lcc", "seed43_raw", "seed43_lcc", "ensemble_raw", "ensemble_lcc"}
@@ -49,3 +50,13 @@ def test_improvement_checkpoint_rejects_wrong_fitting_membership(tmp_path):
     torch.save(dict(state_dict=EnhancedUNet(2).state_dict(), provenance=provenance), checkpoint)
     with pytest.raises(ValueError, match="identity"):
         load_member(checkpoint, identity, "cpu")
+
+
+def test_parallel_preparation_preserves_tensors_and_order(tmp_path):
+    torch.set_num_threads(1)
+    manifest_path = synthetic(tmp_path / "fixtures", patients=7, size=32)
+    cases = load_manifest(manifest_path)["cases"][:8]
+    serial = prepared_records(manifest_path, cases, 32, True, workers=1)
+    parallel = prepared_records(manifest_path, cases, 32, True, workers=4)
+    for actual, expected in zip(parallel.tensors, serial.tensors):
+        torch.testing.assert_close(actual, expected, atol=0, rtol=0)

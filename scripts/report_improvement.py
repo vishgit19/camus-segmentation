@@ -40,7 +40,7 @@ def main():
         raise ValueError("Frozen plan fingerprint mismatch")
     if report["split_sha256"] != baseline["split_sha256"] or report["test_patients"] != baseline["test_patients"]:
         raise ValueError("Comparison uses different patients or split")
-    histories, provenances = {}, {}
+    histories, provenances, statuses = {}, {}, {}
     for member in config["checkpoints"]:
         checkpoint = args.run / member["path"]
         if digest(checkpoint) != member["sha256"]:
@@ -48,18 +48,28 @@ def main():
         seed = member["seed"]
         histories[seed] = read(checkpoint.parent / "history.json")
         provenances[seed] = read(checkpoint.parent / "provenance.json")
-        if provenances[seed]["code_sha256"] != report["code_sha256"]:
-            raise ValueError("Training and evaluation package source differ")
-        if len(histories[seed]) != plan["training"]["epochs"]:
-            raise ValueError("Incomplete training budget")
+        statuses[seed] = read(checkpoint.parent / "training_status.json")
+        if provenances[seed]["code_sha256"] != member["training_code_sha256"]:
+            raise ValueError("Training source fingerprint differs from frozen member record")
+        if statuses[seed]["epochs_completed"] != len(histories[seed]):
+            raise ValueError("Training status/history mismatch")
+        reason = statuses[seed]["stop_reason"]
+        if member.get("inherited"):
+            if reason != "completed_before_user_policy_change":
+                raise ValueError("Missing inherited-run disclosure")
+        elif reason == "validation_patience":
+            if statuses[seed]["patience"] != 10 or statuses[seed]["epochs_without_improvement"] < 10:
+                raise ValueError("Early-stopping policy not satisfied")
+        elif reason != "maximum_epochs" or len(histories[seed]) != plan["training"]["epochs"]:
+            raise ValueError("Trial has not reached a valid terminal state")
     args.out.mkdir(parents=True, exist_ok=False)
     for path in (args.run / "test").iterdir():
         if path.is_file():
             shutil.copy2(path, args.out / path.name)
-    for name in ("selected_config.json", "run-plan.json", "validation_selection.json"):
+    for name in ("selected_config.json", "run-plan.json", "validation_selection.json", "resources.json"):
         shutil.copy2(args.run / name, args.out / name)
     for seed in histories:
-        for name in ("history.json", "provenance.json"):
+        for name in ("history.json", "provenance.json", "training_status.json"):
             shutil.copy2(args.run / f"seed{seed}" / name, args.out / f"seed{seed}_{name}")
     shutil.copy2(args.source_license, args.out / "DATA_LICENSE.md")
     (args.out / "baseline_summary.json").write_text(json.dumps(dict(
@@ -93,7 +103,9 @@ def main():
              "ensemble and cleanup selection used the 50 validation patients only.", "",
              f"The frozen choice is **{config['id']}**, using seed(s) {seeds}, "
              f"with component cleanup **{config['cleanup']}**. The original 400/50/50 "
-             "patient membership is unchanged. Both planned 120-epoch training runs completed; "
+             "patient membership is unchanged. The completed seed42 checkpoint was reused; "
+             "two new trials ran concurrently with a maximum of120epochs and patience10. "
+             "Actual epoch counts and stop reasons are recorded below. "
              "the selected configuration was evaluated once on all 200 test frames.", "",
              "| Patient-mean metric | Original | Selected model [95% CI] | Paired change [95% CI] |",
              "| --- | --- | --- | --- |"]
@@ -126,7 +138,7 @@ def main():
         lines.append(f"| {candidate['id']} | {values['dice']:.4f} | {distance} | "
                      f"{values['empty_mask_failures']} | {'Selected' if candidate['id'] == config['id'] else ''} |")
     lines += ["", "Each seed's checkpoint was selected by highest native-grid validation Dice. "
-              "Among the six fixed inference candidates, configurations within 0.001 of "
+              f"Among the {len(candidates)} fixed inference candidates, configurations within 0.001 of "
               "the highest validation Dice were ranked by fewer empty-mask distance "
               "failures, lower mean HD95, fewer ensemble members, then lexical ID. "
               "No policy was chosen using the new test scores.", "",
@@ -136,12 +148,23 @@ def main():
               "aspect-preserving 256-square letterboxing. Auxiliary decoder losses use "
               "nearest-downsampled labels at four scales, with normalized weights "
               "1, 0.5, 0.25 and 0.125. All distances are scored after native-grid restoration.", "",
-              "Two fixed seeds (42, 43), 120 epochs each, batch size 16, AdamW at 0.001 "
+              "The already completed seed42 model was retained. New seeds43 and44 used "
+              "up to120epochs, with immediate termination after10 consecutive validation "
+              "epochs without a strict Dice improvement. Batch size16, AdamW at0.001 "
               "with weight decay 0.0001, cosine scheduling to 0.00001, gradient norm "
               "clipping at 5, and mixed-precision CUDA were used. Paired affine augmentation "
               "uses +/-10-degree rotation, scale 0.9–1.1 and +/-8% translation; no mirroring. "
-              "Losses are evaluated in float32. Strict deterministic algorithms remain enabled.", "",
-              "![Training and validation trajectories for both seeds](learning_curves.png)", "",
+              "Losses are evaluated in float32. Strict deterministic algorithms remain enabled. "
+              "The two new CUDA jobs share one prepared CPU tensor cache; data preparation "
+              "and independent validation metric calculations use up to20 CPU threads.", "",
+              "| Seed | Actual epochs | Selected epoch | Best raw validation Dice | Parameters | Stop reason | Used |",
+              "| --- | --- | --- | --- | --- | --- | --- |"]
+    for index, member in enumerate(config["checkpoints"]):
+        seed, epoch = member["seed"], member["epoch"]
+        score = histories[seed][epoch-1]["val_native_macro_dice"]
+        lines.append(f"| {seed} | {len(histories[seed])} | {epoch} | {score:.4f} | "
+                     f"{provenances[seed]['parameters']:,} | {statuses[seed]['stop_reason']} | {index in config['members']} |")
+    lines += ["", "![Training and validation trajectories for both seeds](learning_curves.png)", "",
               "## Image quality", "",
               "| Quality | Contributing patients | Selected Dice [95% CI] |",
               "| --- | --- | --- |"]
@@ -158,7 +181,12 @@ def main():
               "isolate the causal contribution of each architectural or training change. "
               "There is no claim of state-of-the-art performance, external validation or "
               "clinical suitability. The original baseline and its immutable records are "
-              "preserved in ../camus-seed42/. Checkpoint, source, split and plan fingerprints "
+              "preserved in ../camus-seed42/. The version2 scheduler was cancelled at the "
+              "user's runtime-policy change: seed42 had completed120epochs and seed43 "
+              "had run one epoch. That partial seed43 attempt is excluded; its replacement "
+              "and seed44 are the new early-stopped trials. Mixed training-source versions "
+              "are intentional for the reused checkpoint and are recorded per member. "
+              "Checkpoint, source, split and plan fingerprints "
               "are retained, along with every validation candidate and both training histories.", "",
               "Training choices were informed by [Kjelsrud et al., Lightweight image "
               "segmentation for echocardiography](https://arxiv.org/abs/2509.03631); "

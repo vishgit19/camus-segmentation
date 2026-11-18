@@ -12,6 +12,7 @@ from torch.utils.data import DataLoader, Dataset
 from .common import load_manifest, read_json, sha256, validate_split, write_json
 from .data import load_case
 from .model import UNet, input_tensor, predict_tensor, segmentation_loss
+from .stopping import EarlyStopping
 
 
 def code_sha256():
@@ -19,6 +20,13 @@ def code_sha256():
     for path in sorted(Path(__file__).parent.glob("*.py")):
         digest.update(path.name.encode() + path.read_bytes())
     return digest.hexdigest()
+
+
+def save_checkpoint(checkpoint, path):
+    path = Path(path)
+    temporary = Path(str(path)+".tmp")
+    torch.save(checkpoint, temporary)
+    temporary.replace(path)
 
 
 def experiment_data(manifest_path, split_path):
@@ -46,7 +54,7 @@ class Frames(Dataset):
 
 
 def train(manifest_path, split_path, out, *, epochs=50, size=256, width=16,
-          batch_size=8, lr=.001, seed=42, device="cpu", threads=2):
+          batch_size=8, lr=.001, seed=42, device="cpu", threads=2, patience=10, min_delta=0.):
     if min(epochs, batch_size, width, threads) < 1 or size < 16 or size % 4 or lr <= 0:
         raise ValueError("Invalid training settings")
     manifest, split = experiment_data(manifest_path, split_path)
@@ -73,7 +81,8 @@ def train(manifest_path, split_path, out, *, epochs=50, size=256, width=16,
         validation_data.append((input_tensor(image, size), target.astype(np.uint8)))
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     settings = dict(epochs=epochs, size=size, width=width, batch_size=batch_size,
-                    lr=lr, seed=seed, device=device, threads=threads)
+                    lr=lr, seed=seed, device=device, threads=threads,
+                    patience=patience, min_delta=min_delta)
     provenance = dict(kind=manifest["kind"], source_tag=manifest["source_tag"],
                       manifest_sha256=sha256(manifest_path), split_sha256=sha256(split_path),
                       train_patients=split["train"], validation_patients=split["val"],
@@ -85,7 +94,7 @@ def train(manifest_path, split_path, out, *, epochs=50, size=256, width=16,
                                        gpu=torch.cuda.get_device_name() if device == "cuda" else None,
                                        deterministic_algorithms=True))
     write_json(out / "provenance.json", provenance)
-    best, history = -1.0, []
+    stopper, history, stopped = EarlyStopping(patience, min_delta), [], False
     for epoch in range(1, epochs+1):
         started = time.perf_counter()
         model.train()
@@ -108,12 +117,17 @@ def train(manifest_path, split_path, out, *, epochs=50, size=256, width=16,
         score = float(np.mean(scores))
         if not np.isfinite(score) or not np.isfinite(total_loss):
             raise ValueError("Training produced non-finite results")
+        improved, stopped = stopper.update(score, epoch)
         history.append(dict(epoch=epoch, train_loss=total_loss/len(training),
-                            val_native_macro_dice=score, seconds=time.perf_counter()-started))
+                            val_native_macro_dice=score, seconds=time.perf_counter()-started,
+                            epochs_without_improvement=stopper.bad_epochs))
         write_json(out / "history.json", history)
-        if score > best:
-            best = score
-            torch.save(dict(state_dict=model.state_dict(), epoch=epoch,
+        if improved:
+            save_checkpoint(dict(state_dict=model.state_dict(), epoch=epoch,
                             validation_dice=score, provenance=provenance), out / "best.pt")
         print(f"epoch={epoch} loss={total_loss/len(training):.4f} val_dice={score:.4f}", flush=True)
+        if stopped:
+            print(f"EARLY STOP: {patience} consecutive validation epochs without improvement", flush=True)
+            break
+    write_json(out / "training_status.json", stopper.status(len(history), stopped))
     return out / "best.pt"

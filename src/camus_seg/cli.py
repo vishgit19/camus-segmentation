@@ -30,6 +30,9 @@ def main():
             for arg, default in (("epochs", 50), ("size", 256), ("width", 16), ("batch-size", 8)):
                 command.add_argument("--"+arg, type=int, default=default)
             command.add_argument("--lr", type=float, default=.001)
+            command.add_argument("--patience", type=int, default=10,
+                                 help="Stop after this many non-improving validation epochs; 0 disables")
+            command.add_argument("--min-delta", type=float, default=0.)
         else:
             command.add_argument("--checkpoint", required=True)
             command.add_argument("--repetitions", type=int, default=2000)

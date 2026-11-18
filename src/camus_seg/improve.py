@@ -5,6 +5,8 @@ import os
 import platform
 import random
 import time
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -16,8 +18,9 @@ from .data import load_case
 from .enhanced import (EnhancedUNet, affine_augment, clean_components, deep_supervision_loss,
                        letterbox_input, letterbox_mask, native_probabilities)
 from .evaluate import gallery, summarize
-from .experiment import code_sha256, experiment_data
+from .experiment import code_sha256, experiment_data, save_checkpoint
 from .metrics import aggregate, binary_metrics, bootstrap_mean
+from .stopping import EarlyStopping
 
 
 def seed_everything(seed, threads=2):
@@ -32,19 +35,26 @@ def seed_everything(seed, threads=2):
         torch.cuda.manual_seed_all(seed)
 
 
-def prepared_records(manifest_path, cases, size, training=False):
+def prepared_records(manifest_path, cases, size, training=False, workers=1):
     records, inputs, masks = [], [], []
-    for index, case in enumerate(cases, 1):
+    def prepare(case):
         image, mask, spacing = load_case(manifest_path, case)
         tensor = letterbox_input(image, size)
+        target = letterbox_mask(mask, size) if training else mask.astype(np.uint8)
+        return case, tensor, target, spacing
+    pool = ThreadPoolExecutor(max_workers=workers)
+    try:
+      for index, (case, tensor, target, spacing) in enumerate(pool.map(prepare, cases), 1):
         if training:
             inputs.append(tensor)
-            masks.append(letterbox_mask(mask, size))
+            masks.append(target)
         else:
-            records.append(dict(case=case, tensor=tensor, target=mask.astype(np.uint8),
+            records.append(dict(case=case, tensor=tensor, target=target,
                                 spacing=spacing))
         if index % 200 == 0:
             print(f"Cached {index}/{len(cases)} {'training' if training else 'validation'} frames", flush=True)
+    finally:
+      pool.shutdown(wait=True, cancel_futures=True)
     return TensorDataset(torch.stack(inputs), torch.stack(masks)) if training else records
 
 
@@ -64,7 +74,7 @@ def native_dice(model, records, device, amp):
 def train_seed(dataset, validation, out, settings, identity, seed):
     out = Path(out)
     out.mkdir(parents=True, exist_ok=False)
-    seed_everything(seed)
+    seed_everything(seed, settings.get("threads", 2))
     device, amp = settings["device"], settings["amp"]
     if amp and device != "cuda":
         raise ValueError("AMP is supported only by the CUDA experiment")
@@ -84,7 +94,8 @@ def train_seed(dataset, validation, out, settings, identity, seed):
                                        gpu=torch.cuda.get_device_name() if device == "cuda" else None,
                                        deterministic_algorithms=True))
     write_json(out / "provenance.json", provenance)
-    best, history = -1., []
+    stopper = EarlyStopping(settings.get("patience", 10), settings.get("min_delta", 0.))
+    history, stopped = [], False
     for epoch in range(1, settings["epochs"]+1):
         started, total = time.perf_counter(), 0.
         model.train()
@@ -107,17 +118,23 @@ def train_seed(dataset, validation, out, settings, identity, seed):
         score = native_dice(model, validation, device, amp)
         if not np.isfinite(score):
             raise ValueError("Non-finite validation score")
+        improved, stopped = stopper.update(score, epoch)
         history.append(dict(epoch=epoch, train_loss=total/len(dataset), val_native_macro_dice=score,
                             lr=learning_rate, amp_scale=scaler.get_scale(),
-                            seconds=time.perf_counter()-started))
+                            seconds=time.perf_counter()-started,
+                            epochs_without_improvement=stopper.bad_epochs))
         write_json(out / "history.json", history)
-        if score > best:
-            best = score
-            torch.save(dict(state_dict=model.state_dict(), epoch=epoch, validation_dice=score,
+        if improved:
+            save_checkpoint(dict(state_dict=model.state_dict(), epoch=epoch, validation_dice=score,
                             provenance=provenance), out / "best.pt")
         scheduler.step()
         print(f"seed={seed} epoch={epoch}/{settings['epochs']} loss={total/len(dataset):.4f} "
-              f"val_dice={score:.4f} seconds={history[-1]['seconds']:.1f}", flush=True)
+              f"val_dice={score:.4f} stale={stopper.bad_epochs}/{stopper.patience} "
+              f"seconds={history[-1]['seconds']:.1f}", flush=True)
+        if stopped:
+            print(f"EARLY STOP seed={seed}: {stopper.patience} validation epochs without improvement", flush=True)
+            break
+    write_json(out / "training_status.json", stopper.status(len(history), stopped))
     del model, optimizer, scaler
     if device == "cuda":
         torch.cuda.empty_cache()
@@ -163,7 +180,7 @@ def select_candidate(candidates):
                len(c["members"]), c["id"]))
 
 
-def validation_selection(models, validation, seeds, device, amp):
+def validation_selection(models, validation, seeds, device, amp, metric_workers=1):
     candidates = []
     memberships = [[index] for index in range(len(models))] + [list(range(len(models)))]
     for members in memberships:
@@ -171,18 +188,36 @@ def validation_selection(models, validation, seeds, device, amp):
         for cleanup in (False, True):
             candidates.append(dict(id=name+("_lcc" if cleanup else "_raw"), members=members,
                                    cleanup=cleanup, rows=[]))
-    for index, record in enumerate(validation, 1):
-        probabilities = [native_probabilities(model, record["tensor"], record["target"].shape,
-                                               device, amp) for model in models]
-        predictions = {tuple(m): torch.stack([probabilities[i] for i in m]).mean(0).argmax(0).cpu().numpy()
-                       for m in memberships}
+    def score_case(record, predictions):
+        result = []
         for candidate in candidates:
             prediction = predictions[tuple(candidate["members"])]
             if candidate["cleanup"]:
                 prediction = clean_components(prediction)
-            candidate["rows"].extend(metric_rows(record["case"], prediction, record["target"], record["spacing"]))
+            result.append(metric_rows(record["case"], prediction, record["target"], record["spacing"]))
+        return result
+
+    def collect(future):
+        for candidate, rows in zip(candidates, future.result()):
+            candidate["rows"].extend(rows)
+
+    pool = ThreadPoolExecutor(max_workers=metric_workers)
+    pending = deque()
+    try:
+      for index, record in enumerate(validation, 1):
+        probabilities = [native_probabilities(model, record["tensor"], record["target"].shape,
+                                               device, amp) for model in models]
+        predictions = {tuple(m): torch.stack([probabilities[i] for i in m]).mean(0).argmax(0).cpu().numpy()
+                       for m in memberships}
+        pending.append(pool.submit(score_case, record, predictions))
+        if len(pending) >= max(1, metric_workers*2):
+            collect(pending.popleft())
         if index % 50 == 0:
             print(f"Validation selection scored {index}/{len(validation)} frames", flush=True)
+      while pending:
+        collect(pending.popleft())
+    finally:
+      pool.shutdown(wait=True)
     for candidate in candidates:
         candidate["validation"] = point_summary(candidate.pop("rows"))
     return candidates
