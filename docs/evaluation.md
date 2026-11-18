@@ -37,3 +37,11 @@ An all-background predictor is scored on the same held-out patients. It is a san
 3. Train to the predeclared budget and inspect only validation data during development.
 4. Evaluate the frozen checkpoint on held-out patients, reporting Dice/IoU, distances, CIs, counts, quality subgroups and failures together.
 5. Describe the single-site/device setting, manual reference limitations, and mismatch to the original challenge protocol. External validation and clinical review remain future work.
+
+## Completed development follow-up
+
+The version 3 experiment keeps the same patient membership. New training defaults to termination after 10 consecutive validation epochs without a strict Dice gain, retaining the best checkpoint. Completed seed 42 was inherited from the earlier fixed-budget run; seeds 43 and 44 stopped after 42 and 48 epochs. The cancelled one-epoch seed 43 attempt is excluded and recorded separately.
+
+All eight predeclared inference configurations were scored on validation only: each of the three best checkpoints and their equal-probability ensemble, with or without largest four-connected-component cleanup per class. Candidates within 0.001 of maximum validation Dice were ranked by fewer undefined empty-mask distances, lower mean HD95, fewer members, then lexical ID. The three-model raw ensemble won; its configuration was saved before test scoring.
+
+The selected configuration was evaluated once on the previously inspected baseline test patients. It is a development follow-up, not a new independent test. Paired changes are calculated within each patient, then bootstrapped over patient identities using 2,000 replicates and seed 42. Distance comparisons require both old and new patient distances to be defined, and expose the contributing count. These intervals condition on the trained/selected models and do not account for the full development process or training-seed uncertainty. No test-driven retuning followed this evaluation.

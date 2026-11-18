@@ -53,12 +53,16 @@ def main():
             raise ValueError("Training source fingerprint differs from frozen member record")
         if statuses[seed]["epochs_completed"] != len(histories[seed]):
             raise ValueError("Training status/history mismatch")
+        if statuses[seed]["best_epoch"] != member["epoch"]:
+            raise ValueError("Selected checkpoint differs from best recorded epoch")
+        if provenances[seed]["plan_sha256"] != member.get("training_plan_sha256", config["plan_sha256"]):
+            raise ValueError("Member training plan fingerprint mismatch")
         reason = statuses[seed]["stop_reason"]
         if member.get("inherited"):
             if reason != "completed_before_user_policy_change":
                 raise ValueError("Missing inherited-run disclosure")
         elif reason == "validation_patience":
-            if statuses[seed]["patience"] != 10 or statuses[seed]["epochs_without_improvement"] < 10:
+            if statuses[seed]["patience"] != 10 or statuses[seed]["epochs_without_improvement"] != 10:
                 raise ValueError("Early-stopping policy not satisfied")
         elif reason != "maximum_epochs" or len(histories[seed]) != plan["training"]["epochs"]:
             raise ValueError("Trial has not reached a valid terminal state")
@@ -66,7 +70,7 @@ def main():
     for path in (args.run / "test").iterdir():
         if path.is_file():
             shutil.copy2(path, args.out / path.name)
-    for name in ("selected_config.json", "run-plan.json", "validation_selection.json", "resources.json"):
+    for name in ("selected_config.json", "run-plan.json", "validation_selection.json", "resources.json", "previous_attempts.json"):
         shutil.copy2(args.run / name, args.out / name)
     for seed in histories:
         for name in ("history.json", "provenance.json", "training_status.json"):
@@ -103,10 +107,10 @@ def main():
              "ensemble and cleanup selection used the 50 validation patients only.", "",
              f"The frozen choice is **{config['id']}**, using seed(s) {seeds}, "
              f"with component cleanup **{config['cleanup']}**. The original 400/50/50 "
-             "patient membership is unchanged. The completed seed42 checkpoint was reused; "
-             "two new trials ran concurrently with a maximum of120epochs and patience10. "
+             "patient membership is unchanged. The completed seed 42 checkpoint was reused; "
+             "two new trials ran concurrently with a maximum of 120 epochs and patience 10. "
              "Actual epoch counts and stop reasons are recorded below. "
-             "the selected configuration was evaluated once on all 200 test frames.", "",
+             "The selected configuration was evaluated once on all 200 test frames.", "",
              "| Patient-mean metric | Original | Selected model [95% CI] | Paired change [95% CI] |",
              "| --- | --- | --- | --- |"]
     for metric, label in (("dice", "Foreground macro-Dice"), ("iou", "Foreground macro-IoU"),
@@ -148,15 +152,15 @@ def main():
               "aspect-preserving 256-square letterboxing. Auxiliary decoder losses use "
               "nearest-downsampled labels at four scales, with normalized weights "
               "1, 0.5, 0.25 and 0.125. All distances are scored after native-grid restoration.", "",
-              "The already completed seed42 model was retained. New seeds43 and44 used "
-              "up to120epochs, with immediate termination after10 consecutive validation "
-              "epochs without a strict Dice improvement. Batch size16, AdamW at0.001 "
+              "The already completed seed 42 model was retained. New seeds 43 and 44 used "
+              "up to 120 epochs, with immediate termination after 10 consecutive validation "
+              "epochs without a strict Dice improvement. Batch size 16, AdamW at 0.001 "
               "with weight decay 0.0001, cosine scheduling to 0.00001, gradient norm "
               "clipping at 5, and mixed-precision CUDA were used. Paired affine augmentation "
               "uses +/-10-degree rotation, scale 0.9–1.1 and +/-8% translation; no mirroring. "
               "Losses are evaluated in float32. Strict deterministic algorithms remain enabled. "
               "The two new CUDA jobs share one prepared CPU tensor cache; data preparation "
-              "and independent validation metric calculations use up to20 CPU threads.", "",
+              "and independent validation metric calculations use up to 20 CPU threads.", "",
               "| Seed | Actual epochs | Selected epoch | Best raw validation Dice | Parameters | Stop reason | Used |",
               "| --- | --- | --- | --- | --- | --- | --- |"]
     for index, member in enumerate(config["checkpoints"]):
@@ -164,7 +168,7 @@ def main():
         score = histories[seed][epoch-1]["val_native_macro_dice"]
         lines.append(f"| {seed} | {len(histories[seed])} | {epoch} | {score:.4f} | "
                      f"{provenances[seed]['parameters']:,} | {statuses[seed]['stop_reason']} | {index in config['members']} |")
-    lines += ["", "![Training and validation trajectories for both seeds](learning_curves.png)", "",
+    lines += ["", "![Training and validation trajectories for all three seeds](learning_curves.png)", "",
               "## Image quality", "",
               "| Quality | Contributing patients | Selected Dice [95% CI] |",
               "| --- | --- | --- |"]
@@ -181,13 +185,13 @@ def main():
               "isolate the causal contribution of each architectural or training change. "
               "There is no claim of state-of-the-art performance, external validation or "
               "clinical suitability. The original baseline and its immutable records are "
-              "preserved in ../camus-seed42/. The version2 scheduler was cancelled at the "
-              "user's runtime-policy change: seed42 had completed120epochs and seed43 "
-              "had run one epoch. That partial seed43 attempt is excluded; its replacement "
-              "and seed44 are the new early-stopped trials. Mixed training-source versions "
+              "preserved in ../camus-seed42/. The version 2 scheduler was cancelled at the "
+              "user's runtime-policy change: seed 42 had completed 120 epochs and seed 43 "
+              "had run one epoch. That partial seed 43 attempt is excluded; its replacement "
+              "and seed 44 are the new early-stopped trials. Mixed training-source versions "
               "are intentional for the reused checkpoint and are recorded per member. "
               "Checkpoint, source, split and plan fingerprints "
-              "are retained, along with every validation candidate and both training histories.", "",
+              "are retained, along with every validation candidate and all three training histories.", "",
               "Training choices were informed by [Kjelsrud et al., Lightweight image "
               "segmentation for echocardiography](https://arxiv.org/abs/2509.03631); "
               "this implementation and its evaluation are not a replication of that study.", "",

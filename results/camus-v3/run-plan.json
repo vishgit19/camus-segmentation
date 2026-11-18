@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "supersedes": "Version2 orchestration was stopped at the user's request before selection/test evaluation. Seed42 had completed120epochs; seed43 was stopped after1epoch. Both original records are retained.",
+  "runtime_policy": "User requested 10 consecutive non-improving validation epochs then stop, parallel independent work, and efficient use of available resources.",
+  "test_status": "Development follow-up on the same previously inspected baseline test set; all new selection uses validation only.",
+  "split": "Unchanged official publisher400/50/50 patient membership",
+  "inherited": {
+    "seed": 42,
+    "source": "runs/improvement-v2/seed42",
+    "reason": "Reuse the completed best validation checkpoint; do not rerun completed work"
+  },
+  "training": {
+    "epochs": 120,
+    "patience": 10,
+    "min_delta": 0.0,
+    "size": 256,
+    "width": 16,
+    "batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "seeds": [
+      43,
+      44
+    ],
+    "device": "cuda",
+    "amp": true,
+    "threads": 2
+  },
+  "resources": {
+    "training_workers": 2,
+    "metric_workers": 20,
+    "prepare_workers": 20,
+    "shared_cpu_tensor_cache": true,
+    "observed_single_trial_vram_mib": 1490,
+    "gpu_total_mib": 6141,
+    "wsl_cpu_threads": 20,
+    "wsl_ram_gib": 15.5
+  },
+  "recipe": "Same enhanced U-Net, letterbox preprocessing, affine augmentation, deep supervision, AdamW/cosine/clipnorm5 as version2; only runtime scheduling/early stopping changes.",
+  "inference_candidates": "Three individual best validation checkpoints (inherited42, new43, new44) and equal-probability ensemble of all3; each raw or largest4connectedcomponentperclass:8candidates",
+  "selection": "Max validation Dice; within0.001 rank fewer undefined empty-mask distances, lower validation meanHD95, fewer members, lexicalID. Freeze before test.",
+  "test_evaluation": "Evaluate frozen winner once on all50test patients; patient-paired bootstrap2000seed42 versus immutable original baseline. No test-driven retuning."
+}

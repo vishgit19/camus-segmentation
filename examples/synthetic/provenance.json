@@ -25,9 +25,11 @@
     "lr": 0.005,
     "seed": 42,
     "device": "cpu",
-    "threads": 2
+    "threads": 2,
+    "patience": 10,
+    "min_delta": 0.0
   },
-  "code_sha256": "92321ad1837cf3b285fc1a0e8618f9775ddcbc5f087ccdae21ac9de2f7f00e43",
+  "code_sha256": "76118a7689fc494ccc29e513297106a3d8573456b39fdc560f5888c337bbd816",
   "environment": {
     "python": "3.9.18",
     "torch": "2.7.1+cu126",

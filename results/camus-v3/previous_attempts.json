@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-18T16:18:10.852026+00:00",
+  "reason": "User requested stopping non-improving trials after10validation epochs and parallel execution",
+  "trials": {
+    "42": {
+      "epochs_recorded": 120,
+      "best_epoch": 34,
+      "best_validation_dice": 0.9115479310954288,
+      "status": "completed_before_policy_change",
+      "reused": true
+    },
+    "43": {
+      "epochs_recorded": 1,
+      "best_epoch": 1,
+      "best_validation_dice": 0.84819500368782,
+      "status": "user_cancelled",
+      "reused": false
+    }
+  },
+  "test_evaluation_performed": false
+}

@@ -1,0 +1,9 @@
+{
+  "epochs_completed": 42,
+  "best_epoch": 32,
+  "best_validation_dice": 0.9080660968259802,
+  "epochs_without_improvement": 10,
+  "patience": 10,
+  "min_delta": 0.0,
+  "stop_reason": "validation_patience"
+}

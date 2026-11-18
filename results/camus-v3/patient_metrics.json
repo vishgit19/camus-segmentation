@@ -1,0 +1,1502 @@
+{
+  "patient0027": {
+    "dice": {
+      "mean": 0.9352990858470323,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8795330581120523,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.8670505997934743,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3362544092684974,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0047": {
+    "dice": {
+      "mean": 0.9040691568377558,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.826849341195436,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.682687644584793,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.539936273410863,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0051": {
+    "dice": {
+      "mean": 0.8872448125267357,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8116051655554325,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 6.063650764523403,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 2.2220437829549544,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0052": {
+    "dice": {
+      "mean": 0.9292240942933372,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8710423823764301,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.539148227988293,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3044941768030778,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0187": {
+    "dice": {
+      "mean": 0.9103354323661722,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8414745929474257,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.076754910728218,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.5255738977421973,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0189": {
+    "dice": {
+      "mean": 0.896596200722524,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8152717893670244,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.939555822715427,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4931187359363696,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0191": {
+    "dice": {
+      "mean": 0.9410069912248127,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8895362834576397,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.4478439764694255,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 0.9208688869452271,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0194": {
+    "dice": {
+      "mean": 0.9057185240386326,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8302769822325802,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 5.100975695901467,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.73372387419663,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0197": {
+    "dice": {
+      "mean": 0.9227765944380243,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.859689514617567,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.50719878732181,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.2813403221473902,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0199": {
+    "dice": {
+      "mean": 0.9300462812367609,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8704575720221213,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.8924644839395417,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.0357069716208118,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0201": {
+    "dice": {
+      "mean": 0.9353220102738938,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8802217435624916,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.870018515810994,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.2334404027630597,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0208": {
+    "dice": {
+      "mean": 0.9191849318272655,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8531604325033412,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.332296187610766,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.281712305453078,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0213": {
+    "dice": {
+      "mean": 0.8897371033124267,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8060718782618094,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.018296779467201,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4956799300896126,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0214": {
+    "dice": {
+      "mean": 0.9374336011843286,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8843555142736088,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.2386683358794683,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.1707683619636418,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0215": {
+    "dice": {
+      "mean": 0.9085448391940409,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8347484817659593,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.716963451549818,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3297551719138745,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0217": {
+    "dice": {
+      "mean": 0.8755529542683971,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.7854593079921889,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 5.2914707487313075,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 2.3806262604826594,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0218": {
+    "dice": {
+      "mean": 0.9089880257814874,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8347873537274642,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.0975590664113755,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.776984519871218,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0219": {
+    "dice": {
+      "mean": 0.9411006243798795,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8893734004770854,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.84383525303714,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.1182539510599216,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0220": {
+    "dice": {
+      "mean": 0.9224630318469248,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8575082699768922,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.4701749474194674,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4285485596982845,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0221": {
+    "dice": {
+      "mean": 0.916647674996948,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8482976802689017,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.06979060934941,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.548054963249867,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0223": {
+    "dice": {
+      "mean": 0.9319654140883326,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.874331739377618,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.086839639696384,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.100812830386996,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0224": {
+    "dice": {
+      "mean": 0.9443113003343778,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8951329708142733,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.6451870603195426,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.089710334705926,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0225": {
+    "dice": {
+      "mean": 0.9146196147373259,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8450882969647023,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.064875944588423,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.2833036276225267,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0226": {
+    "dice": {
+      "mean": 0.9403142697484776,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8882108410354729,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.5411286072174533,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 0.9988128280384051,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0227": {
+    "dice": {
+      "mean": 0.9183158800745942,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8502605192291188,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.9303738734531204,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3202058045256706,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0228": {
+    "dice": {
+      "mean": 0.9411427457033557,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8902616417042367,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.9015837909548683,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.0579357107640148,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0231": {
+    "dice": {
+      "mean": 0.891853446163613,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8090048291565658,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 5.197865608347988,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 2.0869349804862214,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0234": {
+    "dice": {
+      "mean": 0.9166154394934405,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8481590711772807,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.98338439545778,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.55853690817651,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0237": {
+    "dice": {
+      "mean": 0.9435320019586223,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8937678786504145,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.6380541502233874,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.0401808093708584,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0238": {
+    "dice": {
+      "mean": 0.9402340010429963,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8881434079545006,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.9030183081675216,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.0890442053377538,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0239": {
+    "dice": {
+      "mean": 0.9214921395762738,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8561988702626606,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.7071962707756776,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3549536963128126,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0240": {
+    "dice": {
+      "mean": 0.9063836660362684,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8310087637327391,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.64225293931683,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.7378481352581001,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0241": {
+    "dice": {
+      "mean": 0.9167365997282829,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.848088673550869,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.4341433753362405,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4037527826952256,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0242": {
+    "dice": {
+      "mean": 0.9152283134112768,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8449456234820785,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.276352496659667,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3385142634825031,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0243": {
+    "dice": {
+      "mean": 0.9078238335328014,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8336508144958709,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.050951273555868,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.5636751278005818,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0246": {
+    "dice": {
+      "mean": 0.9314265371232019,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8721658886657324,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.323576798237734,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.1687337547340249,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0248": {
+    "dice": {
+      "mean": 0.8470746919324824,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.7448294441894198,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 12.071837604628962,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 3.0138162022705965,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0251": {
+    "dice": {
+      "mean": 0.9134626602221653,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8431334549013737,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.9531354174054716,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3595286663644377,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0252": {
+    "dice": {
+      "mean": 0.9196104911648244,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8525806508003585,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.033322403972368,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4133976846849683,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0254": {
+    "dice": {
+      "mean": 0.9276105128083961,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8662268295847482,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.491714243903635,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.036802036440031,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0258": {
+    "dice": {
+      "mean": 0.9269241295333502,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8656504793212098,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.4348213472307445,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.3973204851687202,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0260": {
+    "dice": {
+      "mean": 0.920203612955202,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8549740247530956,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 3.1720741102054255,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.1189321617895425,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0261": {
+    "dice": {
+      "mean": 0.935827625185843,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8801013008527967,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 2.9253900843847553,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.104873191661982,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0262": {
+    "dice": {
+      "mean": 0.908249628544555,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8340876497875992,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.243114268186533,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.5675122916030961,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0263": {
+    "dice": {
+      "mean": 0.8998833140823993,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8216069720432664,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.418263845092546,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.521940249744728,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0266": {
+    "dice": {
+      "mean": 0.8866722295702818,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8016647129255801,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 5.973219051918085,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 2.0097760228815957,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0269": {
+    "dice": {
+      "mean": 0.9315966046257861,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8732793992495602,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 4.234006688417639,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.4891186874093514,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0273": {
+    "dice": {
+      "mean": 0.8392932750553768,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.7326186182181286,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 5.558433993708747,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.6834313375493803,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0275": {
+    "dice": {
+      "mean": 0.8934638420721478,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.8097311298709168,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 6.885980933202102,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 1.836417146987347,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  },
+  "patient0276": {
+    "dice": {
+      "mean": 0.8570360305783066,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.7602989356929223,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 6.978621963769222,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "assd_mm": {
+      "mean": 2.2515543930790916,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 0,
+    "empty_targets": 0,
+    "empty_predictions": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "direction": "new minus original; higher Dice/IoU, lower distance is better",
+  "test_status": "Development follow-up on a previously inspected test set",
+  "dice": {
+    "mean": 0.09879748861955434,
+    "ci95": [
+      0.0850809567195593,
+      0.11551958585725493
+    ],
+    "n_patients": 50
+  },
+  "iou": {
+    "mean": 0.14037876492722026,
+    "ci95": [
+      0.12450959083713398,
+      0.15870623015919652
+    ],
+    "n_patients": 50
+  },
+  "hd95_mm": {
+    "mean": -16.166266950817274,
+    "ci95": [
+      -18.269035269508613,
+      -14.171557220178915
+    ],
+    "n_patients": 50
+  },
+  "assd_mm": {
+    "mean": -3.020732718520403,
+    "ci95": [
+      -3.4801014469696945,
+      -2.6135345221490534
+    ],
+    "n_patients": 50
+  }
+}

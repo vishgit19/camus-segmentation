@@ -1,0 +1,9 @@
+{
+  "training_workers": 2,
+  "metric_workers": 20,
+  "cpu_threads_available": 20,
+  "gpu_free_bytes": 5318377472,
+  "gpu_total_bytes": 6438780928,
+  "shared_cpu_cache": true,
+  "prepare_workers": 20
+}

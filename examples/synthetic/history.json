@@ -3,120 +3,133 @@
     "epoch": 1,
     "train_loss": 1.110517978668213,
     "val_native_macro_dice": 0.037791837154144546,
-    "seconds": 0.10575215799985926
+    "seconds": 0.45980928500000573,
+    "epochs_without_improvement": 0
   },
   {
     "epoch": 2,
     "train_loss": 1.0799870789051056,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.08356835299991872
+    "seconds": 0.34154461200000696,
+    "epochs_without_improvement": 1
   },
   {
     "epoch": 3,
     "train_loss": 1.0207140743732452,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07811344100014139
+    "seconds": 0.4558170710000127,
+    "epochs_without_improvement": 2
   },
   {
     "epoch": 4,
     "train_loss": 0.9621111899614334,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07820416300000943
+    "seconds": 0.6529710060000298,
+    "epochs_without_improvement": 3
   },
   {
     "epoch": 5,
     "train_loss": 0.9168307185173035,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07665014899998823
+    "seconds": 0.5495888589999822,
+    "epochs_without_improvement": 4
   },
   {
     "epoch": 6,
     "train_loss": 0.8834493607282639,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07545062100007272
+    "seconds": 0.5940062950000424,
+    "epochs_without_improvement": 5
   },
   {
     "epoch": 7,
     "train_loss": 0.8488154411315918,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07278074200007723
+    "seconds": 0.5774844110000004,
+    "epochs_without_improvement": 6
   },
   {
     "epoch": 8,
     "train_loss": 0.7807192653417587,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07436777899988556
+    "seconds": 0.5541943270000047,
+    "epochs_without_improvement": 7
   },
   {
     "epoch": 9,
     "train_loss": 0.6606498211622238,
     "val_native_macro_dice": 0.10228137731204245,
-    "seconds": 0.0725365299999794
+    "seconds": 0.5846562489999769,
+    "epochs_without_improvement": 0
   },
   {
     "epoch": 10,
     "train_loss": 0.5966708213090897,
     "val_native_macro_dice": 0.00677490702951392,
-    "seconds": 0.07454231700012315
+    "seconds": 0.6370345409999913,
+    "epochs_without_improvement": 1
   },
   {
     "epoch": 11,
     "train_loss": 0.5776872634887695,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07342460099994241
+    "seconds": 0.637766097999986,
+    "epochs_without_improvement": 2
   },
   {
     "epoch": 12,
     "train_loss": 0.5733333677053452,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07534435599995959
+    "seconds": 0.4382219849999842,
+    "epochs_without_improvement": 3
   },
   {
     "epoch": 13,
     "train_loss": 0.5694052278995514,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07951660000003358
+    "seconds": 0.4396617969999852,
+    "epochs_without_improvement": 4
   },
   {
     "epoch": 14,
     "train_loss": 0.5666057616472244,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07665378299998338
+    "seconds": 0.3586058470000353,
+    "epochs_without_improvement": 5
   },
   {
     "epoch": 15,
     "train_loss": 0.5628736764192581,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07340669699988212
+    "seconds": 0.3407565730000215,
+    "epochs_without_improvement": 6
   },
   {
     "epoch": 16,
     "train_loss": 0.5611893534660339,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07585643600009462
+    "seconds": 0.3455582580000396,
+    "epochs_without_improvement": 7
   },
   {
     "epoch": 17,
     "train_loss": 0.5582338869571686,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07592297199994391
+    "seconds": 0.33270235500003764,
+    "epochs_without_improvement": 8
   },
   {
     "epoch": 18,
     "train_loss": 0.5557090491056442,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.07849643100007597
+    "seconds": 0.33448405899997624,
+    "epochs_without_improvement": 9
   },
   {
     "epoch": 19,
     "train_loss": 0.5536863654851913,
     "val_native_macro_dice": 0.0,
-    "seconds": 0.08379005500000858
-  },
-  {
-    "epoch": 20,
-    "train_loss": 0.5511902719736099,
-    "val_native_macro_dice": 0.0,
-    "seconds": 0.08613851999984945
+    "seconds": 0.2860111030000212,
+    "epochs_without_improvement": 10
   }
 ]
