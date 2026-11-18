@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "scope": "Validation-selected follow-up improvement; original results retained",
+  "test_status": "Original test results and failure gallery have already been inspected. New test results are a development follow-up, not a pristine independent confirmation.",
+  "split": "Same official corrected CAMUS 400/50/50 membership; no test patients in fitting or selection",
+  "architecture": "Five-level U-Net: four max-pool downsamplings, base width 16, instance normalization, LeakyReLU, transposed-convolution upsampling, deep supervision",
+  "preprocessing": "Per-image 1st/99th percentile scaling, aspect-preserving letterbox to 256 square, native-grid restoration for scoring",
+  "training": {"epochs": 120, "size": 256, "width": 16, "batch_size": 16, "lr": 0.001, "weight_decay": 0.0001, "seeds": [42,43], "device": "cuda", "amp": true},
+  "optimizer": "AdamW; cosine schedule to 1e-5; gradient clipping norm 5",
+  "augmentation": "Paired affine: rotation +/-10 degrees, scale 0.9 to 1.1, translation +/-8% on each axis; no mirroring or test augmentation",
+  "loss": "Average CE/foreground soft Dice at four decoder resolutions, auxiliary weights 1,0.5,0.25,0.125 normalized to sum one",
+  "checkpoint_selection": "Highest native-grid validation foreground macro-Dice per seed; earliest tie",
+  "inference_candidates": "Each selected seed checkpoint and equal-probability ensemble; each with none or largest four-connected component per class (six candidates)",
+  "final_selection": "Validation Dice maximum; candidates within 0.001 of maximum are compared by fewer undefined empty-mask distance failures, lower validation mean HD95 (undefined ranks last), fewer members, then lexical ID. Config frozen before test evaluation.",
+  "test_evaluation": "Evaluate only the frozen selected config once; compare with stored original baseline using patient-paired bootstrap differences (2000 replicates, seed42). Do not retune after seeing test results.",
+  "compute_budget": "Two fixed 120-epoch CUDA runs; stop search after these six inference configurations",
+  "research_source": "https://arxiv.org/abs/2509.03631"
+}
