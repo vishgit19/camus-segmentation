@@ -1,0 +1,14 @@
+{
+  "DATA_LICENSE.md": "cf1405fcaf9693635c0b704b9869fb376933d77164f3ae46f64282f8f3ead303",
+  "README.md": "86fb845825824edf9cb78b19c6c4254722540b4e83a400849d0dd94bf2d03f55",
+  "background_metrics.csv": "581bd559ab242e624d713a48262a3cc4a4282b8615f32601fdab7beb80ce61ec",
+  "frame_metrics.csv": "5a0c7d8906b59861a0feaa14cd206de7e46e92d862556d2c87d49dee1c3a6bb4",
+  "history.json": "d71a71d6361fd2c29ff1b74a9d03190ee71b0c78c4215eba5c155c57b77e172b",
+  "learning_curve.png": "a9f0be371d2e22865c6f18ffbd934da18b33a932387905f65468db98041ead3d",
+  "patient_metrics.json": "3752bb3efc85dc31ec857b6aeb909349b80238f187b388113071c163110476e1",
+  "provenance.json": "0db2a34d8e056ff3acb024e9100d7cc944dfc6ababc543f50472fd8e1ec23639",
+  "report.json": "5aec58b3608c906056af579b1808c071673fd8242d82e1becf7194cfa0f0601a",
+  "run-plan.json": "9b40a8b3d83d41e8443d359cb852fb420641ada7a3f162cee78cb489382a8e7c",
+  "split.json": "487488cc160c3bb1ee6dfd4c806f3c20dcab0928185e17d452ad383669a64d14",
+  "worst_cases.png": "0ea3eb5aa24f1d101b94263cafa04dc9d6f5a1d84f4a42c0675f4fc9674b6d0e"
+}

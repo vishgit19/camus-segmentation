@@ -1,0 +1,62 @@
+{
+  "synthetic0001": {
+    "dice": {
+      "mean": 0.09796773967773965,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.05792668267664619,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 6.353997595445892,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 8
+    },
+    "assd_mm": {
+      "mean": 1.921038678922329,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 8
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 8,
+    "empty_targets": 0,
+    "empty_predictions": 8
+  },
+  "synthetic0008": {
+    "dice": {
+      "mean": 0.10483630379013277,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "iou": {
+      "mean": 0.06292192117310366,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 0
+    },
+    "hd95_mm": {
+      "mean": 6.2463898994171,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 8
+    },
+    "assd_mm": {
+      "mean": 1.88244254022429,
+      "ci95": null,
+      "n_patients": 1,
+      "excluded_frame_class_pairs": 8
+    },
+    "n_frame_class_pairs": 12,
+    "surface_failures": 8,
+    "empty_targets": 0,
+    "empty_predictions": 8
+  }
+}

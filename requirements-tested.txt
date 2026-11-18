@@ -1,0 +1,8 @@
+# Direct dependencies used for WSL verification (Python 3.9.18, CUDA 12.6).
+# This is not a transitive lockfile. Install CPU PyTorch as described in README.
+numpy==1.26.4
+scipy==1.13.1
+torch==2.7.1
+SimpleITK==2.4.1
+matplotlib==3.9.2
+pytest==7.4.4

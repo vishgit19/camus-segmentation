@@ -1,0 +1,23 @@
+{
+  "protocol": "custom_patient_70_15_15_v1",
+  "seed": 42,
+  "manifest_sha256": "a0dae6cd3a1fe82b38ecb58442fcc23b4def555879b2e6e03f5a04442d7458e7",
+  "train": [
+    "synthetic0000",
+    "synthetic0002",
+    "synthetic0003",
+    "synthetic0005",
+    "synthetic0006",
+    "synthetic0007",
+    "synthetic0009",
+    "synthetic0011"
+  ],
+  "val": [
+    "synthetic0004",
+    "synthetic0010"
+  ],
+  "test": [
+    "synthetic0001",
+    "synthetic0008"
+  ]
+}

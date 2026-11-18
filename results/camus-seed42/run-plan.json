@@ -1,0 +1,12 @@
+{
+  "recorded_before_training_or_test_evaluation": true,
+  "dataset": "Official CAMUS_public Girder collection 6373703d73e9f0047faa1bc8, annotated ED/ES frames only",
+  "split": "Publisher subgroup_training/validation/testing.txt: 400/50/50 patients",
+  "training": {"epochs": 50, "size": 256, "width": 16, "batch_size": 8, "lr": 0.001, "seed": 42, "device": "cuda", "threads": 2},
+  "selection": "Highest validation native-grid foreground macro-Dice, earliest tie",
+  "primary": "Test patient mean foreground macro-Dice over all labelled qualities",
+  "secondary": ["per-structure Dice and IoU", "native-grid HD95 and ASSD in mm", "quality/view/phase summaries", "surface-failure counts", "all-background reference"],
+  "confidence_intervals": {"unit": "patient", "method": "percentile bootstrap", "replicates": 2000, "seed": 42},
+  "test_policy": "One evaluation of the selected checkpoint after the fixed training budget; no tuning against test results",
+  "scope": "One complete baseline run; not a multi-seed study, external validation, or clinical validation"
+}

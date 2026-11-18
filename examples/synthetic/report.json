@@ -1,0 +1,736 @@
+{
+  "kind": "synthetic",
+  "source_tag": "geometric_fixture_v1",
+  "protocol": "custom_patient_70_15_15_v1",
+  "partition": "test",
+  "test_patients": [
+    "synthetic0001",
+    "synthetic0008"
+  ],
+  "checkpoint_sha256": "85285cb5c5836d7b6a5877747ae7573b91f008b0c898d85a1b6ba0aba89f9267",
+  "manifest_sha256": "a0dae6cd3a1fe82b38ecb58442fcc23b4def555879b2e6e03f5a04442d7458e7",
+  "split_sha256": "71a6c9e53575a155ebc054aca1b82ff32cb8906ac65ff6865c99855ffca6b29a",
+  "code_sha256": "92321ad1837cf3b285fc1a0e8618f9775ddcbc5f087ccdae21ac9de2f7f00e43",
+  "selected_epoch": 9,
+  "bootstrap": {
+    "unit": "patient",
+    "repetitions": 200,
+    "seed": 42,
+    "method": "percentile",
+    "confidence": 0.95
+  },
+  "model": {
+    "overall": {
+      "dice": {
+        "mean": 0.10140202173393621,
+        "ci95": [
+          0.09796773967773965,
+          0.10483630379013277
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 0
+      },
+      "iou": {
+        "mean": 0.060424301924874926,
+        "ci95": [
+          0.05792668267664619,
+          0.06292192117310366
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 0
+      },
+      "hd95_mm": {
+        "mean": 6.300193747431496,
+        "ci95": [
+          6.2463898994171,
+          6.353997595445892
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 16
+      },
+      "assd_mm": {
+        "mean": 1.9017406095733094,
+        "ci95": [
+          1.88244254022429,
+          1.921038678922329
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 16
+      },
+      "n_frame_class_pairs": 24,
+      "surface_failures": 16,
+      "empty_targets": 0,
+      "empty_predictions": 16
+    },
+    "by_structure": {
+      "lv_cavity": {
+        "dice": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "assd_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 8,
+        "empty_targets": 0,
+        "empty_predictions": 8
+      },
+      "myocardium": {
+        "dice": {
+          "mean": 0.30420606520180865,
+          "ci95": [
+            0.293903219033219,
+            0.3145089113703983
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.1812729057746248,
+          "ci95": [
+            0.17378004802993857,
+            0.188765763519311
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": 6.300193747431496,
+          "ci95": [
+            6.2463898994171,
+            6.353997595445892
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "assd_mm": {
+          "mean": 1.9017406095733094,
+          "ci95": [
+            1.88244254022429,
+            1.921038678922329
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 0,
+        "empty_targets": 0,
+        "empty_predictions": 0
+      },
+      "left_atrium": {
+        "dice": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "assd_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 8,
+        "empty_targets": 0,
+        "empty_predictions": 8
+      }
+    },
+    "subgroups": {
+      "view": {
+        "2CH": {
+          "dice": {
+            "mean": 0.09908715444636113,
+            "ci95": [
+              0.09809443030817078,
+              0.10007987858455147
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0588933032075398,
+            "ci95": [
+              0.057688319230131076,
+              0.06009828718494853
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": 6.257065175217608,
+            "ci95": [
+              6.003210985549507,
+              6.51091936488571
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "assd_mm": {
+            "mean": 1.8819651084652949,
+            "ci95": [
+              1.754834733163602,
+              2.0090954837669877
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 8,
+          "empty_targets": 0,
+          "empty_predictions": 8
+        },
+        "4CH": {
+          "dice": {
+            "mean": 0.10371688902151133,
+            "ci95": [
+              0.09784104904730856,
+              0.10959272899571408
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.061955300642210054,
+            "ci95": [
+              0.058165046123161306,
+              0.0657455551612588
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": 6.343322319645383,
+            "ci95": [
+              6.197075826006075,
+              6.489568813284691
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "assd_mm": {
+            "mean": 1.9215161106813239,
+            "ci95": [
+              1.8329818740776704,
+              2.0100503472849773
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 8,
+          "empty_targets": 0,
+          "empty_predictions": 8
+        }
+      },
+      "phase": {
+        "ED": {
+          "dice": {
+            "mean": 0.1217448084834038,
+            "ci95": [
+              0.11714697122117679,
+              0.1263426457456308
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.07455275404461223,
+            "ci95": [
+              0.07112369337979095,
+              0.0779818147094335
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": 6.673730704098697,
+            "ci95": [
+              6.578656473726137,
+              6.768804934471257
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "assd_mm": {
+            "mean": 1.8195438400050716,
+            "ci95": [
+              1.7769363843989687,
+              1.8621512956111745
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 8,
+          "empty_targets": 0,
+          "empty_predictions": 8
+        },
+        "ES": {
+          "dice": {
+            "mean": 0.08105923498446864,
+            "ci95": [
+              0.07878850813430253,
+              0.08332996183463474
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.04629584980513764,
+            "ci95": [
+              0.044729671973501445,
+              0.04786202763677383
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": 5.926656790764295,
+            "ci95": [
+              5.914123325108061,
+              5.939190256420529
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "assd_mm": {
+            "mean": 1.9839373791415473,
+            "ci95": [
+              1.979926062233484,
+              1.9879486960496107
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 8
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 8,
+          "empty_targets": 0,
+          "empty_predictions": 8
+        }
+      },
+      "quality": {
+        "Synthetic": {
+          "dice": {
+            "mean": 0.10140202173393621,
+            "ci95": [
+              0.09796773967773965,
+              0.10483630379013277
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.060424301924874926,
+            "ci95": [
+              0.05792668267664619,
+              0.06292192117310366
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": 6.300193747431496,
+            "ci95": [
+              6.2463898994171,
+              6.353997595445892
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 16
+          },
+          "assd_mm": {
+            "mean": 1.9017406095733094,
+            "ci95": [
+              1.88244254022429,
+              1.921038678922329
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 16
+          },
+          "n_frame_class_pairs": 24,
+          "surface_failures": 16,
+          "empty_targets": 0,
+          "empty_predictions": 16
+        }
+      }
+    }
+  },
+  "all_background": {
+    "overall": {
+      "dice": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 0
+      },
+      "iou": {
+        "mean": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n_patients": 2,
+        "excluded_frame_class_pairs": 0
+      },
+      "hd95_mm": {
+        "mean": null,
+        "ci95": null,
+        "n_patients": 0,
+        "excluded_frame_class_pairs": 24
+      },
+      "assd_mm": {
+        "mean": null,
+        "ci95": null,
+        "n_patients": 0,
+        "excluded_frame_class_pairs": 24
+      },
+      "n_frame_class_pairs": 24,
+      "surface_failures": 24,
+      "empty_targets": 0,
+      "empty_predictions": 24
+    },
+    "by_structure": {
+      "lv_cavity": {
+        "dice": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "assd_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 8,
+        "empty_targets": 0,
+        "empty_predictions": 8
+      },
+      "myocardium": {
+        "dice": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "assd_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 8,
+        "empty_targets": 0,
+        "empty_predictions": 8
+      },
+      "left_atrium": {
+        "dice": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "iou": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n_patients": 2,
+          "excluded_frame_class_pairs": 0
+        },
+        "hd95_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "assd_mm": {
+          "mean": null,
+          "ci95": null,
+          "n_patients": 0,
+          "excluded_frame_class_pairs": 8
+        },
+        "n_frame_class_pairs": 8,
+        "surface_failures": 8,
+        "empty_targets": 0,
+        "empty_predictions": 8
+      }
+    },
+    "subgroups": {
+      "view": {
+        "2CH": {
+          "dice": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "assd_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 12,
+          "empty_targets": 0,
+          "empty_predictions": 12
+        },
+        "4CH": {
+          "dice": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "assd_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 12,
+          "empty_targets": 0,
+          "empty_predictions": 12
+        }
+      },
+      "phase": {
+        "ED": {
+          "dice": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "assd_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 12,
+          "empty_targets": 0,
+          "empty_predictions": 12
+        },
+        "ES": {
+          "dice": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "assd_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 12
+          },
+          "n_frame_class_pairs": 12,
+          "surface_failures": 12,
+          "empty_targets": 0,
+          "empty_predictions": 12
+        }
+      },
+      "quality": {
+        "Synthetic": {
+          "dice": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "iou": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "n_patients": 2,
+            "excluded_frame_class_pairs": 0
+          },
+          "hd95_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 24
+          },
+          "assd_mm": {
+            "mean": null,
+            "ci95": null,
+            "n_patients": 0,
+            "excluded_frame_class_pairs": 24
+          },
+          "n_frame_class_pairs": 24,
+          "surface_failures": 24,
+          "empty_targets": 0,
+          "empty_predictions": 24
+        }
+      }
+    }
+  }
+}
